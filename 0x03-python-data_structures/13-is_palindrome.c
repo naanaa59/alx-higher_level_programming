@@ -9,7 +9,7 @@
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *current, *rev_list;
+	listint_t *current, *rev_list, *head2;
 	int count = 0, i;
 
 	if (*head == NULL)
@@ -20,18 +20,20 @@ int is_palindrome(listint_t **head)
 		count++;
 		current = current->next;
 	}
-	rev_list = rev_half(head, count);
+	head2 = rev_half(head, count);
+	rev_list = head2;
 	current = *head;
 	for (i = 0; i < count / 2; i++)
 	{
 		if (current->n != rev_list->n)
 		{
-			free(rev_list);
+			free_listint(head2);
 			return (0);
 		}
 		current = current->next;
 		rev_list = rev_list->next;
 	}
+	free_listint(head2);
 	return (1);
 }
 /**
