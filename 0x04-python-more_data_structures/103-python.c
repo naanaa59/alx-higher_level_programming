@@ -1,7 +1,7 @@
 #include <Python.h>
 #include <object.h>
 #include <listobject.h>
-#include <byteobject.h>
+#include <bytesobject.h>
 
 /**
  * print_python_bytes - print
@@ -15,7 +15,7 @@ void print_python_bytes(PyObject *p)
 	char *string = NULL;
 
 	printf("[.] butes object info\n");
-	if (!PyBBytes_Check(p))
+	if (!PyBytes_Check(p))
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
@@ -57,5 +57,4 @@ void print_python_list(PyObject *p)
 		if (!strcmp(type, "bytes"))
 			print_python_bytes(list->ob_item[i]);
 	}
-}
 }
