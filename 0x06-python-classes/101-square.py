@@ -141,13 +141,14 @@ class Square:
         """
         its a str method that represent the class object as a string
         """
-        if self.size == 0:
-            return "\n"
-        else:
-            printed = "\n" * self.position[1]
-            for i in range(self.size):
-                printed += " " * self.position[0]
-                printed += "#" * self.size
-                if i < self.size - 1:
-                    printed += "\n"
-            return printed
+        size = self.__size
+        position = self.__position
+        result = ""
+        if size != 0:
+            [print("") for i in range(position[1])]
+        for i in range(size):
+            [print(" ", end="") for j in range(0, position[0])]
+            [print("#", end="") for k in range(0, size)]
+            if i != size - 1:
+                print("")
+        return ("")
