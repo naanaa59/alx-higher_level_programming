@@ -1,0 +1,40 @@
+# Test file for add_integer function
+
+# Import function
+>>> add_integer = __import__('0-add_integer').add_integer
+
+# Test Case 1: Add two integers
+>>> add_integer(5, 5)
+10
+
+# Test Case 2: Add two floats
+>>> add_integer(2.5, 3.5)
+5
+
+# Test Case 3: Add a float and an integer
+>>> add_integer(1.5, 1)
+2
+
+# Test Case4: Use the default value of b
+>>> add_integer(1)
+99
+
+# Test Case5: TypeError raise for a as non integer
+>>> add_integer("string", 2)
+Traceback (most recent call last):
+  ...
+TypeError: a must be an integer
+
+# Test Case6: TypeError raise for b as non integer
+>>> add_integer(5, "hi")
+Traceback (most recent call last):
+  ...
+TypeError: b must be an integer
+
+# Test Case 7: Cast a float value of a to int value
+>>> type(add_integer(8.6, 2))
+<class 'int'>
+
+# Test Case 8: Cast a float value of b to int value
+>>> type(add_integer(8, 2.6))
+<class 'int'>
