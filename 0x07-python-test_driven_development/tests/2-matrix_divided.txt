@@ -1,0 +1,49 @@
+# Test file for matrix_divided function
+
+
+# Test Case 1: Matrix must be a list of lists and result rounded to 2 decimal
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+>>> print(matrix_divided(matrix, 3))
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+
+# Test Case 2: Each row of the matrix must be of the same size
+>>> matrix = [[1, 2, 3], [4, 5]]
+
+>>> print(matrix_divided(matrix, 3))
+Traceback (most recent call last):
+    ...
+TypeError: Each row of the matrix must have the same size
+
+# Test Case 3: div must be a number
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+>>> print(matrix_divided(matrix, "hello"))
+Traceback (most recent call last):
+...
+TypeError: div must be a number
+
+# Test Case 4: division by zero
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+>>> print(matrix_divided(matrix, 0))
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+
+
+# Test Case 5: check the type of the returned matrix
+>>> matrix = [[1, 2, 3], [4, 5, 6]]
+
+>>> res = matrix_divided(matrix, 3)
+
+>>> isinstance(res, list)
+True
+
+>>> all(isinstance(row, list) for row in res)
+True
+
+>>> all(isinstance(element, (int, float)) for row in res for element in row)
+True
