@@ -104,4 +104,4 @@ class Rectangle:
             for j in range(width):
                 result += "#"
             result += "\n"
-        return result
+        return result.rstrip("\n")
