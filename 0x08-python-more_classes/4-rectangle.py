@@ -108,16 +108,8 @@ class Rectangle:
 
     def __repr__(self):
         '''
-            str method reprensent the class rectangle as printable objec
+            repr method reprensent the class rectangle as printable objec
         '''
         width = self.__width
         height = self.__height
-        result = ""
-
-        if width == 0 or height == 0:
-            return ""
-        for i in range(height):
-            for j in range(width):
-                result += "#"
-            result += "\n"
-        return result.rstrip("\n")
+        return f"Rectangle({width}, {height})"
