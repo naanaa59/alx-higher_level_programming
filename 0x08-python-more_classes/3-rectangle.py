@@ -84,8 +84,8 @@ class Rectangle:
         '''
             Returns: The rectangle perimeter
         '''
-        width = self.width
-        height = self.height
+        width = self.__width
+        height = self.__height
         if width == 0 or height == 0:
             return 0
         return (width + height) * 2
@@ -99,7 +99,7 @@ class Rectangle:
         result = ""
 
         if width == 0 or height == 0:
-            return ("")
+            return ""
         for i in range(height):
             for j in range(width):
                 result += "#"
