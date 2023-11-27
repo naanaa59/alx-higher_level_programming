@@ -78,7 +78,7 @@ class Rectangle:
         '''
             Returns: the rectangle area
         '''
-        return self.width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         '''
@@ -94,8 +94,8 @@ class Rectangle:
         '''
             str method reprensent the class rectangle as printable objec
         '''
-        width = self.width
-        height = self.height
+        width = self.__width
+        height = self.__height
         result = ""
 
         if width == 0 or height == 0:
