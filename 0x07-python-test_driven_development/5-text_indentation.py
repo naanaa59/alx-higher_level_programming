@@ -4,7 +4,7 @@
 
     prints a text with 2 new lines after each of these characters: ., ? and :
 
-'''
+        '''
 
 
 def text_indentation(text):
@@ -20,10 +20,18 @@ def text_indentation(text):
     '''
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    for char in ".:?":
-        text = ''.join([i + '\n\n' if i == char else i for i in text])
-    lines = text.split("\n")
-    for i in range(len(lines)):
-        lines[i] = ' '.join(lines[i].split())
-    text = "\n".join(lines)
-    print(text)
+    c = 0
+    while c < len(text) and text[c] == ' ':
+        c += 1
+
+    while c < len(text):
+        print(text[c], end="")
+        if text[c] == "\n" or text[c] in ".?:":
+            if text[c] in ".?:":
+                print("\n")
+            c += 1
+            while c < len(text) and text[c] == ' ':
+                c += 1
+            continue
+        c += 1
+

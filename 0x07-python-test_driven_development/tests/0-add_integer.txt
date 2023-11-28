@@ -19,17 +19,46 @@
 >>> add_integer(1)
 99
 
+
+>>> add_integer(2.0, 3.0)
+5
+
+>>> add_integer(-2.9, -0.2)
+-2
+
+>>> add_integer(2.3, -3)
+-1
+
+>>> add_integer(None)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+>>> add_integer(2.3, None)
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+
+
 # Test Case5: TypeError raise for a as non integer
 >>> add_integer("string", 2)
 Traceback (most recent call last):
-  ...
+...
 TypeError: a must be an integer
 
 # Test Case6: TypeError raise for b as non integer
 >>> add_integer(5, "hi")
 Traceback (most recent call last):
-  ...
+...
 TypeError: b must be an integer
+
+
+>>> add_integer("hello", "there")
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+
+
 
 # Test Case 7: Cast a float value of a to int value
 >>> type(add_integer(8.6, 2))
