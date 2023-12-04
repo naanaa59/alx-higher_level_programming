@@ -1,0 +1,31 @@
+
+# This is a test file for task 1 print sorted list of integers
+
+>>> MyList = __import__('1-my_list').MyList
+
+>>> list1 = MyList()
+>>> list1.append(-98)
+>>> list1.append(-58)
+>>> list1.append(15)
+>>> list1.append(56)
+>>> list1.print_sorted()
+[-98, -58, 15, 56]
+
+
+
+>>> list2 = MyList()
+>>> list2.append(15)
+>>> list2.append(45)
+>>> list2.append(1)
+>>> list2.append(88)
+>>> list2.print_sorted()
+[1, 15, 45, 88]
+
+
+>>> list3 = MyList()
+>>> list3.append(-45)
+>>> list3.append(-5)
+>>> list3.append(-98)
+>>> list3.append(-88)
+>>> list3.print_sorted()
+[-98, -88, -45, -5]
