@@ -68,6 +68,24 @@
 [-1254, -458, -300, -200, -125, -102, -100, -99, -88, 0, 1245]
 
 
+>>> list3 = MyList()
+>>> list3.append(-5)
+>>> list3.append(0)
+>>> list3.append(300)
+>>> list3.append(458)
+>>> list3.append(1254)
+>>> list3.print_sorted()
+[-5, 0, 300, 458, 1254]
+
+
+>>> list3 = MyList()
+>>> list3.append(-5)
+>>> list3.append(0)
+>>> list3.append(1254)
+>>> list3.append(300)
+>>> list3.append(458)
+>>> list3.print_sorted()
+[-5, 0, 300, 458, 1254]
 
 
 
