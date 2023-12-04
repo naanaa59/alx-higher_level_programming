@@ -32,7 +32,12 @@ class Rectangle(BaseGeometry):
         class Rectangle that inherits from BaseGeometry
     """
     def __init__(self, width, height):
+        """
+            init function class Rectangle
+        """
+
         super().integer_validator("width", width)
-        super().integer_validator("height", height)
         self.__width = width
+
+        super().integer_validator("height", height)
         self.__height = height
