@@ -19,6 +19,8 @@ True
 >>> list1.append(56)
 >>> list1.print_sorted()
 [-98, -58, 15, 56]
+>>> print(list1)
+[-98, -58, 15, 56]
 
 
 
@@ -29,6 +31,8 @@ True
 >>> list2.append(88)
 >>> list2.print_sorted()
 [1, 15, 45, 88]
+>>> print(list2)
+[15, 45, 1, 88]
 
 
 >>> list3 = MyList()
