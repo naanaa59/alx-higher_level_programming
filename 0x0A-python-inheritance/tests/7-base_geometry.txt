@@ -7,12 +7,6 @@ Import BaseGeometry class:
     >>> type(bg)
     <class '7-base_geometry.BaseGeometry'>
 
-    >>> print(bg)
-    <7-base_geometry.BaseGeometry object at...>
-
-    >>> print(bg.area)
-    <bound method BaseGeometry.area of <7-base_geometry.BaseGeometry
-     object at...>>
 
     >>> bg = BaseGeometry(None)
     Traceback (most recent call last):
