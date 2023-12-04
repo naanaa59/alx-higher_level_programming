@@ -7,6 +7,30 @@ Import BaseGeometry class:
     >>> type(bg)
     <class '7-base_geometry.BaseGeometry'>
 
+    >>> bg = BaseGeometry()
+    >>> type(bg) == BaseGeometry
+    True
+
+    >>> type(BaseGeometry.__dict__['area'])
+    <class 'function'>
+
+    >>> bg.__class__.area()
+    Traceback (most recent call last):
+    TypeError: area() missing 1 required positional argument: 'self'
+
+    integer_validator is an instance method:
+    >>> type(BaseGeometry.__dict__['integer_validator'])
+    <class 'function'>
+
+    >>> bg.area(10)
+    Traceback (most recent call last):
+    TypeError: area() takes 1 positional argument but 2 were given
+
+    >>> bg.integer_validator(1, 1, 1)
+    Traceback (most recent call last):
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+
 
     >>> bg = BaseGeometry(None)
     Traceback (most recent call last):
