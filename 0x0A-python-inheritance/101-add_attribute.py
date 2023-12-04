@@ -5,6 +5,9 @@
 
 
 def add_attribute(objec, attribute, value):
+    """
+        add a new attribute if possible
+    """
     if hasattr(objec, "__dict__"):
         setattr(objec, attribute, value)
     else:
