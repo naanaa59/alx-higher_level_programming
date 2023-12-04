@@ -29,3 +29,20 @@
 >>> list3.append(-88)
 >>> list3.print_sorted()
 [-98, -88, -45, -5]
+
+>>> empty = MyList()
+>>> empty.print_sorted()
+[]
+
+>>> list3 = MyList()
+>>> list3.append(-45)
+>>> list3.append(-5)
+>>> list3.append(-98)
+>>> list3.append(-98)
+>>> list3.print_sorted()
+[-98, -98, -45, -5]
+
+>>> list3 = MyList()
+>>> list3.append(-88)
+>>> list3.print_sorted()
+[-88]
