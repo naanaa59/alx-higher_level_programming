@@ -19,9 +19,8 @@ class Student():
         self.age = age
 
     def to_json(self, attrs=None):
-        if attrs is None:
-            return self.__dict__
-        else:
+        if type(attrs) is list:
             for attr in attrs:
-                attr_dic = {tuple(attrs): self.__dict__.get(attr)}
-            return attr_dic
+                if hasattr(self, attr) and type(attr) is str:
+                    return {attr: getattr(self, attr)}
+        return self.__dict__
