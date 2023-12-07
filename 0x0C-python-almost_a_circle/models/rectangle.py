@@ -80,14 +80,14 @@ class Rectangle(Base):
         else:
             self.__height = value
 
-    """ Getter of the x """
+        """ Getter of the x """
     @property
     def x(self):
         return self.__x
 
-    """ Setter for the height"""
     @x.setter
     def x(self, value):
+        """ Setter for the height"""
         if not isinstance(value, int) :
             raise TypeError("x must be an integer")
         elif value < 0:
@@ -95,17 +95,63 @@ class Rectangle(Base):
         else:
             self.__x = value
 
-    """ Getter of the y """
     @property
     def y(self):
+        """ Getter of the y """
         return self.__y
 
-    """ Setter for the y """
     @y.setter
     def y(self, value):
+        """ Setter for the y """
         if not isinstance(value, int) :
             raise TypeError("y must be an integer")
         elif value < 0:
             raise ValueError("y must be >= 0")
         else:
             self.__y = value
+
+    def area(self):
+        """ area method that calculates the area of a rectangle """
+        return self.__width * self.__height
+
+    def display(self):
+        """ display method : displays the rectangle wit # """
+        for k in range(self.__y):
+            print()
+        for j in range(self.__height):
+            for l in range(self.__x):
+                print(" ", end="")
+            for i in range(self.__width):
+                            print("#", end="")
+            print()
+
+    def __str__(self):
+        """ str gets the printable rectangle object """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x,\
+                self.__y, self.__width, self.__height)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
