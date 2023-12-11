@@ -49,7 +49,6 @@ class Rectangle(Base):
 
         super().__init__(id)
 
-    """ Getter of the width """
     @property
     def width(self):
         ''' getter for width '''
@@ -127,8 +126,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """ str gets the printable rectangle object """
-        return "[Rectangle] ({}) {}/{} - {}/{}".
-        format(self.id, self.__x, self.__y, self.__width, self.__height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+                self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
         """ update the attributes """
