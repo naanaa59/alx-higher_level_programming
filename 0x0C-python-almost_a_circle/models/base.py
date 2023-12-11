@@ -82,8 +82,8 @@ class Base():
         filename = "{}.json".format(cls.__name__)
         if os.path.exists(filename):
             with open(filename, 'r') as f:
-                return [cls.create(**d) for d in cls.from_json_string
-                        (f.read())]
+                return [cls.create(**d) for d in cls.from_json_string(
+                    f.read())]
         else:
             empty_list = []
             return empty_list
