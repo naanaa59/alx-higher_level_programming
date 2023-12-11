@@ -33,7 +33,7 @@ class Base():
         """
         if list_dictionaries is None:
             return "[]"
-        return  json.dumps(list_dictionaries)
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
@@ -65,7 +65,7 @@ class Base():
             returns an instance with all attributes already set
         """
         if cls.__name__ == "Rectangle":
-            obj_r = cls(1,1)
+            obj_r = cls(1, 1)
             obj_r.update(**dictionary)
             return obj_r
 
