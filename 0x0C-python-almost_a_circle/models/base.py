@@ -127,6 +127,7 @@ class Base():
 
     @staticmethod
     def draw(list_rectangles, list_squares):
+        ''' draw method for all shapes '''
         import turtle
         import time
         from random import randrange
