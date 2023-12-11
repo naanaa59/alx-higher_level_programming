@@ -82,8 +82,7 @@ class Base():
         filename = "{}.json".format(cls.__name__)
         if os.path.exists(filename):
             with open(filename, 'r') as file:
-                dict_l = cls.from_json_string(file.read())
-                return cls.create(dict_l)
+                return [cls.create(**d) for d in cls.from_json_string(file.read())]
         else:
             empty_list = []
             return empty_list
