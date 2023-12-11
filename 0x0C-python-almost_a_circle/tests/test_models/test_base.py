@@ -131,8 +131,7 @@ were given"
         self.assertEqual(Base.from_json_string(s), d)
 
 
-    '========= Test for task 16 ==============='
-
+    "========= Test for task 16 ==============="
     def test_save_to_file(self):
         ''' Tests save to file '''
 
@@ -160,6 +159,51 @@ were given"
         Square.save_to_file(None)
         with open("Square.json", "r") as file:
             self.assertEqual(file.read(), "[]")
+
+        r2 = Rectangle(2, 4)
+        Rectangle.save_to_file([r2])
+        with open("Rectangle.json", "r") as file:
+            self.assertEqual(len(file.read()), 53)
+
+        s2 = Square(1)
+        Square.save_to_file([s2])
+        with open("Square.json", "r") as file:
+            self.assertEqual(len(file.read()), 39)
+    '=========Test for task 18============'
+
+    def test_create(self):
+        ''' Teses create method '''
+        r1 = Rectangle(5, 8, 2)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(str(r1), str(r2))
+        self.assertFalse(r1 is r2)
+        self.assertFalse(r1 == r2)
+
+    '======== Test for 19 =========='
+
+    def test_load_from_file(self):
+        ''' Test load_from_file'''
+        r1 = Rectangle(4, 8, 16, 40)
+        r2 = Rectangle(85, 98)
+        list_in = [r1, r2]
+        Rectangle.save_to_file(list_in)
+        list_out = Rectangle.load_from_file()
+        self.assertNotEqual(id(list_in[0]), id(list_out[0]))
+        self.assertEqual(str(list_in[0]), str(list_out[0]))
+        self.assertNotEqual(id(list_in[1]), id(list_out[1]))
+        self.assertEqual(str(list_in[1]), str(list_out[1]))
+
+        s1 = Square(55)
+        s2 = Square(78, 89, 41)
+        list_in = [s1, s2]
+        Square.save_to_file(list_in)
+        list_out = Square.load_from_file()
+        self.assertNotEqual(id(list_in[0]), id(list_out[0]))
+        self.assertEqual(str(list_in[0]), str(list_out[0]))
+        self.assertNotEqual(id(list_in[1]), id(list_out[1]))
+        self.assertEqual(str(list_in[1]), str(list_out[1]))
+
 
 
 if __name__ == "__main__":
