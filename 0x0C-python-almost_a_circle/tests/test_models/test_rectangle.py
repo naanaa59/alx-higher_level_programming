@@ -6,6 +6,8 @@ import unittest
 import inspect
 from models.base import Base
 from models.rectangle import Rectangle
+import io
+from contextlib import redirect_stdout
 
 
 class TestRectangle(unittest.TestCase):
@@ -182,6 +184,52 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(area1, 6)
         self.assertEqual(area2, 56)
 
+    def test_Display_no_args(self):
+        r = Rectangle(5, 8)
+        with self.assertRaises(TypeError) as e:
+            Rectangle.display()
+        msg = "display() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), msg)
+
+    def test_display_simple(self):
+        r = Rectangle(1, 1)
+        f = io.StringIO()
+        with redirect_stdout(f):
+            r.display()
+        s = "#\n"
+        self.assertEqual(f.getvalue(), s)
+        r.width = 3
+        r.height = 5
+        f = io.StringIO()
+        with redirect_stdout(f):
+            r.display()
+        s = "\
+###\n\
+###\n\
+###\n\
+###\n\
+###\n\
+"
+        self.assertEqual(f.getvalue(), s)
+        r = Rectangle(5, 6, 7, 8)
+        f = io.StringIO()
+        with redirect_stdout(f):
+            r.display()
+        s = """
+
+
+
+
+
+
+
+       #####
+       #####
+       #####
+       #####
+       #####
+       #####
+"""
 
 if __name__ == '__main__':
     unittest.main()
