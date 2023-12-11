@@ -230,6 +230,82 @@ class TestRectangle(unittest.TestCase):
        #####
        #####
 """
+        self.assertEqual(f.getvalue(), s)
+
+        r = Rectangle(5, 3, 5)
+        f = io.StringIO()
+        with redirect_stdout(f):
+            r.display()
+        s = """\
+     #####
+     #####
+     #####
+"""
+        self.assertEqual(f.getvalue(), s)
+
+        r = Rectangle(5, 3, 0, 4)
+        f = io.StringIO()
+        with redirect_stdout(f):
+            r.display()
+        s = """\
+
+
+
+
+#####
+#####
+#####
+"""
+        self.assertEqual(f.getvalue(), s)
+
+    def test_str_no_args(self):
+        r = Rectangle(5, 2)
+        with self.assertRaises(TypeError) as e:
+            Rectangle.__str__()
+        s = "__str__() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), s)
+
+    def test_str_(self):
+        '''Tests __str__() method return.'''
+        r = Rectangle(8, 7)
+        s = "[Rectangle] ({}) 0/0 - 8/7".format(Base._Base__nb_objects)
+        self.assertEqual(str(r), s)
+        r = Rectangle(1, 8, 7)
+        s = "[Rectangle] ({}) 7/0 - 1/8".format(Base._Base__nb_objects)
+        self.assertEqual(str(r), s)
+
+    def test_update_no_args(self):
+        r = Rectangle(5, 2)
+        with self.assertRaises(TypeError) as e:
+            Rectangle.update()
+        s = "update() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), s)
+
+        d = r.__dict__.copy()
+        r.update()
+        self.assertEqual(r.__dict__, d)
+
+    def test_update_args(self):
+        r = Rectangle(5, 2)
+        d = r.__dict__.copy()
+
+        r.update(10)
+        d["id"] = 10
+        self.assertEqual(r.__dict__, d)
+
+        r.update(10, 5)
+        d["_Rectangle__width"] = 5
+        self.assertEqual(r.__dict__, d)
+    def test_to_dictionary(self):
+        '''Tests to_dictionary() signature:'''
+        with self.assertRaises(TypeError) as e:
+            Rectangle.to_dictionary()
+        msg = "to_dictionary() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), msg)
+
+        r = Rectangle(1, 2, 0, 0, 55)
+        d = {'x': 0, 'y': 0, 'width': 1, 'id': 55, 'height': 2}
+        self.assertEqual(r.to_dictionary(), d)
 
 if __name__ == '__main__':
     unittest.main()
