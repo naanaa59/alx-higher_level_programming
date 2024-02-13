@@ -18,15 +18,23 @@ class Rectangle {
   }
 
   rotate () {
-    let tmp;
-    this.width = tmp;
-    this.width = this.height;
-    this.height = tmp;
+    if (this.isValid()) {
+      const tmp = this.width;
+      this.width = this.height;
+      this.height = tmp;
+    }
   }
 
   double () {
-    this.width *= 2;
-    this.height *= 2;
+    if (this.isValid()) {
+      this.width *= 2;
+      this.height *= 2;
+    }
+  }
+
+  isValid () {
+    return typeof this.width === 'number' && this.width > 0 &&
+           typeof this.height === 'number' && this.height > 0;
   }
 }
 module.exports = Rectangle;
