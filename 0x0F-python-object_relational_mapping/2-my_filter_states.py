@@ -14,7 +14,7 @@ if __name__ == "__main__":
 
     table = "states"
     column = sys.argv[4]
-    query = "SELECT * FROM {} WHERE name = %s ORDER BY id".format(table)
+    query = "SELECT * FROM {} WHERE BINARY name = %s ORDER BY id".format(table)
 
     cursor.execute(query, (column,))
     rows = cursor.fetchall()
