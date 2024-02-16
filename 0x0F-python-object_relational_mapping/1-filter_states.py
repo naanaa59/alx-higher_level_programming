@@ -13,7 +13,8 @@ if __name__ == "__main__":
     cursor = connection.cursor()
 
     table = "states"
-    query = f"SELECT * FROM {table} WHERE name LIKE 'N%' ORDER BY id"
+    query = f"SELECT * FROM {table} WHERE name LIKE 'N%' COLLATE\
+              utf8mb4_bin ORDER BY id"
 
     cursor.execute(query)
     rows = cursor.fetchall()
