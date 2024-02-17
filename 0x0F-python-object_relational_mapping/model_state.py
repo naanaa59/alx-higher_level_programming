@@ -9,8 +9,6 @@ import sys
 
 
 Base = declarative_base()
-engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
-                       .format(sys.argv[1], sys.argv[2], sys.argv[3]))
 
 
 class State(Base):
@@ -21,6 +19,3 @@ class State(Base):
     id = Column("id", Integer, primary_key=True, autoincrement=True,
                 nullable=False)
     name = Column(String(128), nullable=False)
-
-
-Base.metadaba.create_all(engine)
