@@ -12,15 +12,15 @@ if __name__ == "__main__":
                                  password=sys.argv[2], database=sys.argv[3])
     cursor = connection.cursor()
     state_name = sys.argv[4]
-    query = "SELECT GROUP_CONCAT(cities.name SEPARATOR ', ') FROM cities\
+    query = "SELECT cities.name FROM cities\
              INNER JOIN states ON cities.state_id = states.id\
              WHERE states.name = %s"
 
     cursor.execute(query, (state_name,))
     rows = cursor.fetchall()
 
-    for row in rows:
-        print(','.join(row))
+    cities = [row[0] for row in rows]
+    print(', '.join(cities))
 
     cursor.close()
     connection.close()
