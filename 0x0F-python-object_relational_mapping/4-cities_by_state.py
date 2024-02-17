@@ -12,8 +12,9 @@ if __name__ == "__main__":
                                  password=sys.argv[2], database=sys.argv[3])
     cursor = connection.cursor()
 
-    table = "cities"
-    query = "SELECT * FROM {}".format(table)
+    query = "SELECT cities.id, cities.name, states.name FROM cities, states\
+             WHERE cities.state_id = states.id\
+             ORDER BY cities.id"
 
     cursor.execute(query)
     rows = cursor.fetchall()
