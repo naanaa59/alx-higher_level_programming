@@ -2,6 +2,7 @@
 """
     This script lists all the states from database hbtn_0e_100_usa
 """
+"""
 import sys
 from relationship_state import Base, State
 from relationship_city import City
