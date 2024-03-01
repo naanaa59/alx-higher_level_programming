@@ -7,7 +7,7 @@ import sys
 import requests
 
 
-import __name__ == "__main__":
+__name__ == "__main__":
     url = sys.argv[1]
 
     req = requests.get(url)
