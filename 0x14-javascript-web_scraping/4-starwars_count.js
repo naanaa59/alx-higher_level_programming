@@ -22,5 +22,7 @@ request.get({ url: apiUrl, json: true }, (error, response, body) => {
       });
     });
     console.log(countFilms);
+  } else {
+    console.log('An error occured. Status code: ' + response.statusCode);
   }
 });
